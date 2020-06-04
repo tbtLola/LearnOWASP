@@ -2,6 +2,7 @@ import React from "react";
 import {Nav} from "react-bootstrap";
 import { withRouter } from "react-router";
 import styled from "styled-components";
+import SQLInjections from './SQLInjections'
 
 const StyledSideBar = styled.div`
  .sidebar {
@@ -38,7 +39,6 @@ const StyledSideBar = styled.div`
  }
 `
 
-
 const Side = props => {
 
 
@@ -46,40 +46,40 @@ const Side = props => {
         <StyledSideBar>
             <Nav className="sidebar"
             activeKey="/home"
-            onSelect={selectedKey => alert(`selected ${selectedKey}`)}
+           
             >
             <Nav.Item className="NavTitle">
                 Learn OWASP
             </Nav.Item>
             <Nav.Item className="vulnerability">
-                <Nav.Link href="/sql_injections">SQL Injections</Nav.Link>
+                <Nav.Link href="/sqlInjection">SQL Injections</Nav.Link>
             </Nav.Item>
             <Nav.Item className="vulnerability"> 
-                <Nav.Link >Broken Authentication</Nav.Link>
+                <Nav.Link href="/brokenAuthentication">Broken Authentication</Nav.Link>
             </Nav.Item>
             <Nav.Item className="vulnerability">
-                <Nav.Link >Sensitive Data Exposure</Nav.Link>
+                <Nav.Link href="/sensitiveDataExposure" >Sensitive Data Exposure</Nav.Link>
             </Nav.Item>
             <Nav.Item className="vulnerability">
-                <Nav.Link >XML External Entities (XXE)</Nav.Link>
+                <Nav.Link href="/xmlEE">XML External Entities (XXE)</Nav.Link>
             </Nav.Item>
             <Nav.Item className="vulnerability">
-                <Nav.Link >Broken Access control</Nav.Link>
+                <Nav.Link href="/brokenAccessControl" >Broken Access control</Nav.Link>
             </Nav.Item>
             <Nav.Item className="vulnerability">
-                <Nav.Link >Security misconfigurations</Nav.Link>
+                <Nav.Link href="/securityMisconfig" >Security misconfigurations</Nav.Link>
             </Nav.Item>
             <Nav.Item className="vulnerability">
-                <Nav.Link >Cross Site Scripting (XSS)</Nav.Link>
+                <Nav.Link href="/xss" >Cross Site Scripting (XSS)</Nav.Link>
             </Nav.Item>
             <Nav.Item className="vulnerability">
-                <Nav.Link >Insecure Deserialization</Nav.Link>
+                <Nav.Link href="/insecureDeserialization" >Insecure Deserialization</Nav.Link>
             </Nav.Item>
             <Nav.Item className="vulnerability">
-                <Nav.Link >Using Components with known vulnerabilities</Nav.Link>
+                <Nav.Link href="/usingVulnerableComponents" >Using Components with known vulnerabilities</Nav.Link>
             </Nav.Item>
             <Nav.Item className="vulnerability">
-                <Nav.Link >Insufficient logging and monitoring</Nav.Link>
+                <Nav.Link href="/insufficientLogging" >Insufficient logging and monitoring</Nav.Link>
             </Nav.Item>
             </Nav>
         </StyledSideBar>        
