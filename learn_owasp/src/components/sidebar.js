@@ -14,6 +14,7 @@ const StyledSideBar = styled.div`
         z-index: 100;
         padding: 0px 10px 0 0;
         box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+        background-color: rgb(235, 245, 223); 
     }
  .vulnerability {
      border-bottom: solid;
@@ -23,6 +24,7 @@ const StyledSideBar = styled.div`
      padding-bottom:20px; 
      font-size:13px; 
      text-align: center; 
+     background-color: rgb(235, 245, 223); 
  }
  a {
      text-decoration:none;
@@ -49,7 +51,7 @@ const Side = props => {
            
             >
             <Nav.Item className="NavTitle">
-                Learn OWASP
+             <Nav.Link href="/home">Learn OWASP</Nav.Link>
             </Nav.Item>
             <Nav.Item className="vulnerability">
                 <Nav.Link href="/sqlInjection">SQL Injections</Nav.Link>
