@@ -14,13 +14,17 @@ import HomePage from "./components/HomePage";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 
+
 import styled from "styled-components";
 
 const Application = styled.div`
+  
+  height: 100%;
   .ew {
     background-color: rgb(235, 245, 223);
     padding-left: 272px;
-    height: 1500px;
+    padding-top:25px;
+    height: 100%;
   }
 `;
 
@@ -28,13 +32,10 @@ function App() {
   return (
     <Application>
       <BrowserRouter>
-        <Container fluid>
+        <Container fluid >
           <Row>
-            <Col>
+           
               <SideBar></SideBar>
-            </Col>
-
-            <Col md="auto">
               <div className="ew">
                 <Switch>
                   <Route exact path="/">
@@ -73,7 +74,6 @@ function App() {
                   </Route>
                 </Switch>
               </div>
-            </Col>
           </Row>
         </Container>
       </BrowserRouter>
