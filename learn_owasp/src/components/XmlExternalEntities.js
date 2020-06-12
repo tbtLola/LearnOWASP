@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import XEE from "../images/XEE.png";
+import XEENetworkAttack from "../images/XEENetworkAttack.png";
 
 const TitleStyle = styled.div`
   html,
@@ -67,12 +69,25 @@ const XmlExternalEntities = () => {
                 server. This may look something like:
                 <br></br>
                 <br></br>
+                <img src={XEE} alt="xeeOne" />
+                <br />
+                code snippet from W3Schools
               </p>
-
               <h2>Attempting to search the server's network</h2>
-              <p>test2</p>
+              <p>
+                An attacker can try to maliciously test the server's private
+                network by replacing the entity line above with:{" "}
+              </p>
+              <br />
+              <br />
+              <img src={XEENetworkAttack} alt="" />
+              <br />
+              code snippet from W3Schools
               <h2>Attempting a denial of service (DOS) attack</h2>
-              <p>test3</p>
+              <p>
+                An attacker can maliciously try to send an endless file as part
+                of a denial of service attack
+              </p>
             </td>
             <td className="brokenAuthProtection"></td>
           </tr>
