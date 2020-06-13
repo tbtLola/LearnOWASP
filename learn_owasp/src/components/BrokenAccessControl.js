@@ -1,9 +1,11 @@
 import React from "react";
-import { PanelGroup, Accordion, Card, Button } from "react-bootstrap";
+
 
 import styled from "styled-components";
 
 const TitleStyle = styled.div`
+  
+  
   h1 {
     text-align: center;
   }

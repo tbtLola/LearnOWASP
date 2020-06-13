@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import * as ReactBootStrap from 'react-bootstrap';
 
 const TitleStyle = styled.div`
 
@@ -15,6 +16,9 @@ const TitleStyle = styled.div`
 const HomePage = () => {
   return (
     <TitleStyle>
+      <ReactBootStrap.Jumbotron>
+        hey
+      </ReactBootStrap.Jumbotron>
       <h1>About OWASP</h1>
       <p>asdfds</p>
     </TitleStyle>

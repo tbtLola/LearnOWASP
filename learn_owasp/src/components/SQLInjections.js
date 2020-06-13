@@ -111,7 +111,7 @@ const SQLInjections = () => {
                   other sensitive information susch as SSN/GIN or addresses
                 </p>
                 <h2>Exploiting '=' is always true</h2>
-                <p>
+                
                   Consider a java string variable with the SQL statement:
                   <br />
                   <br />
@@ -155,7 +155,7 @@ const SQLInjections = () => {
                       aria-describedby="basic-addon1"
                     />
                   </InputGroup>
-                </p>
+                
                 <h2>Exploiting SQL databases that support multiple queries</h2>
                 <p>
                   Some SQL databases will support multiple queries in a single

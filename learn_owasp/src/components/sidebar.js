@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { Nav } from "react-bootstrap";
 import { withRouter } from "react-router";
 import styled from "styled-components";
-import SQLInjections from "./SQLInjections";
 
 const StyledSideBar = styled.div`
   .sidebar {
@@ -12,9 +11,7 @@ const StyledSideBar = styled.div`
     left: 0;
     min-height: 100vh !important;
     z-index: 100;
-    padding: 0px 10px 0 0;
     box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
-    background-color: rgb(235, 245, 223);
   }
   .vulnerability {
     border-bottom: solid;
@@ -24,7 +21,15 @@ const StyledSideBar = styled.div`
     padding-bottom: 20px;
     font-size: 13px;
     text-align: center;
-    background-color: rgb(235, 245, 223);
+  }
+  .vulnerabilitySQL {
+    border-bottom: solid;
+    border-bottom-color: gray;
+    border-bottom-width: 0.2px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 13px;
+    text-align: center;
   }
   a {
     text-decoration: none;
@@ -33,68 +38,234 @@ const StyledSideBar = styled.div`
   a:hover {
     text-decoration: underline;
   }
-  a:visited {
-    background-color: red;
-  }
 
+  .NavTitle:hover{
+    background-color: rgb(255, 248, 172);
+  }
   .NavTitle {
     border-bottom: solid;
-    padding-bottom: 35px;
     font-size: 40px;
     text-align: center;
+    background-color: rgb(255, 227, 172);
+  }
+
+  .vulnerability:hover{
+    background-color: rgb(255, 248, 172);
+  }
+  .vulnerability {
+    background-color: rgb(255, 227, 172);
+  }
+
+  .active {
+    background-color: rgb(255, 248, 172);
+  }
+
+  .vulnerabilityFiller {
+    border-bottom: solid;
+    border-bottom-width: 0.2px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 13px;
+    text-align: center;
+    background-color: rgb(255, 227, 172);
+    height:100%; 
+
   }
 `;
 
 const Side = (props) => {
+  var Link = require("react-router-dom").Link;
+  const [setActiveNavTitle, setActiveStateNavTitle] = useState("");
+  const [setActiveSQL, setActiveStateSQL] = useState("");
+  const [setActiveBrokenAuth, setActiveStateBrokenAuth] = useState("");
+  const [
+    setsensitiveDataExposure,
+    setActiveStateSensitiveDataExposure,
+  ] = useState("");
+  const [setxmlEE, setActiveStateXmlEE] = useState("");
+  const [setbrokenAccessControl, setActiveStateBrokenAccessControl] = useState(
+    ""
+  );
+  const [setsecurityMisconfig, setActiveStateSecurityMisconfig] = useState("");
+  const [setxss, setActiveStateXss] = useState("");
+  const [
+    setinsecureDeserialization,
+    setActiveStateInsecureDeserialization,
+  ] = useState("");
+  const [
+    setusingVulnerableComponents,
+    setActiveStateUsingVulnerableComponents,
+  ] = useState("");
+  const [setinsufficientLogging, setActiveStateInsufficientLogging] = useState(
+    ""
+  );
+
+  function clearEveryThing() {
+    setActiveStateSQL("");
+    setActiveStateBrokenAuth("");
+    setActiveStateSensitiveDataExposure("");
+    setActiveStateXmlEE("");
+    setActiveStateBrokenAccessControl("");
+    setActiveStateSecurityMisconfig("");
+    setActiveStateXss("");
+    setActiveStateInsecureDeserialization("");
+    setActiveStateUsingVulnerableComponents("");
+    setActiveStateInsufficientLogging("");
+    setActiveStateNavTitle("");
+    }
+
+  function linkClickHandlerSQL() {
+    clearEveryThing();
+    setActiveStateSQL(setActiveSQL === "" ? "active" : "");
+  }
+
+  function linkClickHandlerBrokenAuth() {
+    clearEveryThing();
+    setActiveStateBrokenAuth(setActiveBrokenAuth === "" ? "active" : "");
+  }
+
+  function linkClickHandlerSensitiveDataExposure() {
+    clearEveryThing();
+    setActiveStateSensitiveDataExposure(
+      setsensitiveDataExposure === "" ? "active" : ""
+    );
+  }
+  function linkClickHandlerXmlEE() {
+    clearEveryThing();
+    setActiveStateXmlEE(setxmlEE === "" ? "active" : "");
+  }
+  function linkClickHandlerBrokenAccessControl() {
+    clearEveryThing();
+    setActiveStateBrokenAccessControl(
+      setbrokenAccessControl === "" ? "active" : ""
+    );
+  }
+  function linkClickHandlerSecurityMisconfig() {
+    clearEveryThing();
+    setActiveStateSecurityMisconfig(
+      setsecurityMisconfig === "" ? "active" : ""
+    );
+  }
+  function linkClickHandlerXss() {
+    clearEveryThing();
+    setActiveStateXss(setxss === "" ? "active" : "");
+  }
+  function linkClickHandlerInsecureDeserialization() {
+    clearEveryThing();
+    setActiveStateInsecureDeserialization(
+      setinsecureDeserialization === "" ? "active" : ""
+    );
+  }
+  function linkClickHandlerUsingVulnerableComponents() {
+    clearEveryThing();
+    setActiveStateUsingVulnerableComponents(
+      setusingVulnerableComponents === "" ? "active" : ""
+    );
+  }
+  function linkClickHandlerInsufficientLogging() {
+    clearEveryThing();
+    setActiveStateInsufficientLogging(
+      setinsufficientLogging === "" ? "active" : ""
+    );
+  }
+  
+  function linkClickHandlerNavTitle() {
+    clearEveryThing();
+    setActiveStateNavTitle(
+      setActiveNavTitle === "" ? "active" : ""
+    );
+  }
+
   return (
     <StyledSideBar>
       <Nav className="sidebar" activeKey="/home">
-        <Nav.Item className="NavTitle">
-          <Nav.Link href="/home">Learn OWASP</Nav.Link>
-          <div>top 10</div>
+        <Nav.Item className={`NavTitle ${setActiveNavTitle}`}>
+          <Nav.Link as={Link} to="/home" onClick={linkClickHandlerNavTitle}>
+            Learn OWASP
+            <br/>
+            Top 10 
+          </Nav.Link>
         </Nav.Item>
-        <Nav.Item className="vulnerability">
-          <Nav.Link href="/sqlInjection">SQL Injections</Nav.Link>
+
+        <Nav.Item className={`vulnerability ${setActiveSQL}`}>
+          <Nav.Link as={Link} to="/sqlInjection" onClick={linkClickHandlerSQL}>
+            SQL Injections
+          </Nav.Link>
         </Nav.Item>
-        <Nav.Item className="vulnerability">
-          <Nav.Link href="/brokenAuthentication">
+        <Nav.Item className={`vulnerability ${setActiveBrokenAuth}`}>
+          <Nav.Link
+            as={Link}
+            to="/brokenAuthentication"
+            onClick={linkClickHandlerBrokenAuth}
+          >
             Broken Authentication
           </Nav.Link>
         </Nav.Item>
-        <Nav.Item className="vulnerability">
-          <Nav.Link href="/sensitiveDataExposure">
+        <Nav.Item className={`vulnerability ${setsensitiveDataExposure}`}>
+          <Nav.Link
+            as={Link}
+            to="/sensitiveDataExposure"
+            onClick={linkClickHandlerSensitiveDataExposure}
+          >
             Sensitive Data Exposure
           </Nav.Link>
         </Nav.Item>
-        <Nav.Item className="vulnerability">
-          <Nav.Link href="/xmlEE">XML External Entities (XXE)</Nav.Link>
+        <Nav.Item className={`vulnerability ${setxmlEE}`}>
+          <Nav.Link as={Link} to="/xmlEE" onClick={linkClickHandlerXmlEE}>
+            XML External Entities (XXE)
+          </Nav.Link>
         </Nav.Item>
-        <Nav.Item className="vulnerability">
-          <Nav.Link href="/brokenAccessControl">Broken Access control</Nav.Link>
+        <Nav.Item className={`vulnerability ${setbrokenAccessControl}`}>
+          <Nav.Link
+            as={Link}
+            to="/brokenAccessControl"
+            onClick={linkClickHandlerBrokenAccessControl}
+          >
+            Broken Access control
+          </Nav.Link>
         </Nav.Item>
-        <Nav.Item className="vulnerability">
-          <Nav.Link href="/securityMisconfig">
+        <Nav.Item className={`vulnerability ${setsecurityMisconfig}`}>
+          <Nav.Link
+            as={Link}
+            to="/securityMisconfig"
+            onClick={linkClickHandlerSecurityMisconfig}
+          >
             Security misconfigurations
           </Nav.Link>
         </Nav.Item>
-        <Nav.Item className="vulnerability">
-          <Nav.Link href="/xss">Cross Site Scripting (XSS)</Nav.Link>
+        <Nav.Item className={`vulnerability ${setxss}`}>
+          <Nav.Link as={Link} to="/xss" onClick={linkClickHandlerXss}>
+            Cross Site Scripting (XSS)
+          </Nav.Link>
         </Nav.Item>
-        <Nav.Item className="vulnerability">
-          <Nav.Link href="/insecureDeserialization">
+        <Nav.Item className={`vulnerability ${setinsecureDeserialization}`}>
+          <Nav.Link
+            as={Link}
+            to="/insecureDeserialization"
+            onClick={linkClickHandlerInsecureDeserialization}
+          >
             Insecure Deserialization
           </Nav.Link>
         </Nav.Item>
-        <Nav.Item className="vulnerability">
-          <Nav.Link href="/usingVulnerableComponents">
+        <Nav.Item className={`vulnerability ${setusingVulnerableComponents}`}>
+          <Nav.Link
+            as={Link}
+            to="/usingVulnerableComponents"
+            onClick={linkClickHandlerUsingVulnerableComponents}
+          >
             Using Components with known vulnerabilities
           </Nav.Link>
         </Nav.Item>
-        <Nav.Item className="vulnerability">
-          <Nav.Link href="/insufficientLogging">
+        <Nav.Item className={`vulnerability ${setinsufficientLogging}`}>
+          <Nav.Link
+            as={Link}
+            to="/insufficientLogging"
+            onClick={linkClickHandlerInsufficientLogging}
+          >
             Insufficient logging and monitoring
           </Nav.Link>
         </Nav.Item>
+        <Nav.Item className="vulnerabilityFiller"></Nav.Item>
       </Nav>
     </StyledSideBar>
   );

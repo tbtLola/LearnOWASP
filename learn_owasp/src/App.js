@@ -12,14 +12,15 @@ import VulnerableComponents from "./components/VulnerableComponents";
 import XmlExternalEntities from "./components/XmlExternalEntities";
 import HomePage from "./components/HomePage";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 
 
 import styled from "styled-components";
 
 const Application = styled.div`
+
   .vulnerabilityPageContainer {
-    background-color: rgb(235, 245, 223);
+    background-color: rgb(255, 248, 172);
     padding-left: 272px;
     padding-top:25px;
     height: 1500px;

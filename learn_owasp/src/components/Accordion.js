@@ -4,11 +4,11 @@ import DownArrow from "./SideArrow";
 
 const AccordionSection = styled.div`
   
-  width: 50%;
+  width: 70%;
   display: flex;
   flex-direction: column;
   margin:auto;
-
+  
   .accordion {
     background-color: #eee;
     color: #444;
@@ -19,6 +19,8 @@ const AccordionSection = styled.div`
     border: none;
     outline: none;
     transition: background-color 0.6s ease;
+    border-radius:12px; 
+    border:solid; 
   }
 
   .accordion:hover,
@@ -40,9 +42,12 @@ const AccordionSection = styled.div`
   }
 
   .accordionContent {
+    margin:auto; 
     background-color: white;
     overflow: hidden;
     transition: max-height 0.6s ease;
+    width:98%; 
+
     /* max-height: 0; */
   }
 
@@ -67,7 +72,6 @@ function Accordion(props) {
     setRotateState(
       setActive === "active" ? "accordionIcon" : "accordionIcon rotate"
     );
-    console.log(content.current.scrollHeight);
   }
 
   return (

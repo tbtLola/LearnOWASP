@@ -56,7 +56,7 @@ const XmlExternalEntities = () => {
             <th>
               <h1>Examples of XML External Entities</h1>
             </th>
-            <th classname="protection">
+            <th className="protection">
               <h1>Protection Against XML External Entities</h1>
             </th>
           </tr>
