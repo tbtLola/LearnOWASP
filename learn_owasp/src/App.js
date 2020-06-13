@@ -18,13 +18,11 @@ import { Container, Row, Col } from "react-bootstrap";
 import styled from "styled-components";
 
 const Application = styled.div`
-  
-  height: 100%;
-  .ew {
+  .vulnerabilityPageContainer {
     background-color: rgb(235, 245, 223);
     padding-left: 272px;
     padding-top:25px;
-    height: 100%;
+    height: 1500px;
   }
 `;
 
@@ -33,45 +31,24 @@ function App() {
     <Application>
       <BrowserRouter>
         <Container fluid >
-          <Row>
-           
+          <Row>           
               <SideBar></SideBar>
-              <div className="ew">
+              <div className="vulnerabilityPageContainer">
                 <Switch>
                   <Route exact path="/">
                     <Redirect to="/home" />
                   </Route>
-                  <Route exact path="/home" component={HomePage}></Route>
-                  <Route path="/sqlInjection">
-                    <SQLInjections></SQLInjections>
-                  </Route>
-                  <Route path="/brokenAuthentication">
-                    <BrokenAuthentication></BrokenAuthentication>
-                  </Route>
-                  <Route path="/sensitiveDataExposure">
-                    <SensitiveDataExposure></SensitiveDataExposure>
-                  </Route>
-                  <Route path="/xmlEE">
-                    <XmlExternalEntities></XmlExternalEntities>
-                  </Route>
-                  <Route path="/brokenAccessControl">
-                    <BrokenAccessControl></BrokenAccessControl>
-                  </Route>
-                  <Route path="/securityMisconfig">
-                    <SecurityMisconfigurations></SecurityMisconfigurations>
-                  </Route>
-                  <Route path="/xss">
-                    <CrossSiteScripting></CrossSiteScripting>
-                  </Route>
-                  <Route path="/insecureDeserialization">
-                    <InsecureDeserialization></InsecureDeserialization>
-                  </Route>
-                  <Route path="/usingVulnerableComponents">
-                    <VulnerableComponents></VulnerableComponents>
-                  </Route>
-                  <Route path="/insufficientLogging">
-                    <InsufficientLogging></InsufficientLogging>
-                  </Route>
+                  <Route exact path="/home" component={HomePage}/>
+                  <Route path="/sqlInjection" component={SQLInjections}/>                  
+                  <Route path="/brokenAuthentication" component={BrokenAuthentication}/>                                    
+                  <Route path="/sensitiveDataExposure" component={SensitiveDataExposure}/>
+                  <Route path="/xmlEE" component={XmlExternalEntities}/>      
+                  <Route path="/brokenAccessControl" component={BrokenAccessControl}/>
+                  <Route path="/securityMisconfig" component={SecurityMisconfigurations}/>
+                  <Route path="/xss" component={CrossSiteScripting}/>
+                  <Route path="/insecureDeserialization" component={InsecureDeserialization}/>
+                  <Route path="/usingVulnerableComponents" component={VulnerableComponents}/>            
+                  <Route path="/insufficientLogging" component={InsufficientLogging}/>                  
                 </Switch>
               </div>
           </Row>
