@@ -4,6 +4,9 @@ import Accordion from "../components/Accordion";
 import * as ReactBootStrap from "react-bootstrap";
 
 const TitleStyle = styled.div`
+
+
+
   body,
   .headerDisplay {
     position:absolute; 
@@ -15,11 +18,15 @@ const TitleStyle = styled.div`
     height: 280px;
     padding-bottom: 10px;
   }
+  
   h1 {
+    font-family:'TestFont';
+    font-weight:normal; 
+    font-style: normal; 
     padding-top:50px; 
     padding-left: 300px; 
     text-align: left;
-    font-size: 50px;
+    /* font-size: 50px; */
   }
   .bodyStuff{
     top:300px;

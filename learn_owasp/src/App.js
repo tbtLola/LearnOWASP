@@ -13,6 +13,7 @@ import XmlExternalEntities from "./components/XmlExternalEntities";
 import HomePage from "./components/HomePage";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import { Container, Row } from "react-bootstrap";
+import GlobalFonts from "./components/fonts/fonts"
 
 
 import styled from "styled-components";
@@ -30,6 +31,7 @@ const Application = styled.div`
 function App() {
   return (
     <Application>
+      <GlobalFonts/>
       <BrowserRouter>
         <Container fluid >
           <Row>           
