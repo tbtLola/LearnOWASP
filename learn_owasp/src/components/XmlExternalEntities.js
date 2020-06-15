@@ -65,62 +65,30 @@ const XmlExternalEntities = () => {
         <h1>4. XML External Entities</h1>
       </div>
       <div className="mainBody">
-        <Accordion />
-        <Accordion />
-        <Accordion />
-      </div>
-      {/* <p className="intro">
-        External markup language (XML) is a tool similar to HTML that is used
+        <Accordion 
+        title="What are XML External Entities?"
+        definition="External markup language (XML) is a tool similar to HTML that is used
         for storing and transporting data. XML is essentially data wrapped in
         tags. Vulnerable XML processors can be exploited by hackers if they can
         take advantage of the processor to upload inappropriate content in the
         XML document, or exploit varying dependences in the code. There are
         various impacts of XEE flaws, especially if an applications accepts XML
-        files from untrusted sources.
-      </p>
-      <table>
-        <tbody>
-          <tr>
-            <th>
-              <h1>Examples of XML External Entities</h1>
-            </th>
-            <th className="protection">
-              <h1>Protection Against XML External Entities</h1>
-            </th>
-          </tr>
-          <tr>
-            <td className="brokenAuth">
-              <h2>Attempting To Extract Data From the Server</h2>
-              <p>
-                Since XML allows the transport of data, an attacker may include
-                a malicious line of code in an attempt to extract data from the
-                server. This may look something like:
-                <br></br>
-                <br></br>
-                <img src={XEE} alt="xeeOne" />
-                <br />
-                code snippet from W3Schools
-              </p>
-              <h2>Attempting to search the server's network</h2>
-              <p>
-                An attacker can try to maliciously test the server's private
-                network by replacing the entity line above with:{" "}
-              </p>
-              <br />
-              <br />
-              <img src={XEENetworkAttack} alt="" />
-              <br />
-              code snippet from W3Schools
-              <h2>Attempting a denial of service (DOS) attack</h2>
-              <p>
-                An attacker can maliciously try to send an endless file as part
-                of a denial of service attack
-              </p>
-            </td>
-            <td className="brokenAuthProtection"></td>
-          </tr>
-        </tbody>
-      </table> */}
+        files from untrusted sources."
+        />
+        <Accordion
+        title="Examples of XML External Entities"
+        subheading="Attempting To Extract Data From the Server"
+        definition="Since XML allows the transport of data, an attacker may include
+        a malicious line of code in an attempt to extract data from the
+        server. This may look something like:"
+        subheadingTwo="Attempting to search the server's network"
+        definitionTwo="An attacker can try to maliciously test the server's private
+        network by replacing the entity line above with:"
+        subheadingThree="Attempting a denial of service (DOS) attack"
+        definitionThree="An attacker can maliciously try to send an endless file as part
+        of a denial of service attack"/>
+        <Accordion title="How to protect against XML External Entities"/>
+      </div>
     </TitleStyle>
   );
 };

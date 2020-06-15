@@ -66,91 +66,59 @@ const BrokenAuthentication = () => {
       <div className="bodyDisplay">
       <Accordion
       title="What is Broken Authentication?"
-      definition=""/>
+      definition="Broken authentication is a vulnerability exploited by attackers via
+      unauthorized account access. When the attacker is able to breach user
+      accounts, the authentication is 'broken'. The attacker can compromise
+      different elements associated with authentication such as usernames,
+      passwords, session ID vulnerabilities, and other login credentials. With
+      these different authentication elements, the attacker is capable of
+      bypassing authentication methods implemented by the web applications.
+      Once an attacker infiltrates the account, they can access or modify
+      information for which they are unauthorized to do so."/>
       <Accordion
-      title="Examples of Broken Authentication"/>
+      title="Examples of Broken Authentication"
+      subheading="Credential Stuffing"
+      definition="Credential stuffing is the process of entering known username,
+      email addresses and passwords from a database of login
+      credentials that were stolen by the attacker. This process is
+      usually done through exhaustive automated login requests against
+      a website. The attacker will use automated tools such as
+      Selenium (A tool mostly used for front-end testing) to attempt
+      logins using previously discovered login credentials until
+      successful."
+
+      subheadingTwo="Re-use of passwords and poor passwords"
+      definitionTwo=" Re-use of passwords or use of poorly chosen passwords will put
+      users in a vulnerable state. There was a survey conducted
+      indicating that 81% of users have used the same password for two
+      or more sites and 25% of users will re-use the same password
+      across a majority of their accounts online. If an attacker is
+      able to breach data and access the passwords to one account,
+      then they can attempt to log into a different website with the
+      same credentials via credential stuffing.If a poor password is chosen,
+      then an attacker may attempt using brute force to guess the password and
+       eventually login. In addition to this, if the attacker can gain access to the
+       password database and the password is not hashed and salted,
+       instead if it is stored in plain text then this would be a poorl
+       form of stored credentials that could lead to broken
+       authentication."
+
+       subheadingThree="Application sessions incorrectly implemented"
+       definitionThree="If a session timeout is not properly implemented or set, then an
+       attacker could could access the user's information after the
+       user had forgotten to logout."
+      />
       <Accordion
-      title="Preventing Broken Authentication"/>
+      title="Preventing Broken Authentication"
+      definition=" - Implement multi-factor authentication. Having this in place
+      can prevent large-scale automated attacks such as brute-force
+      and credentials stuffing. This would require the user to be
+      present and authenticating themselves in a different way other
+      than simply entering login credentials. 
+      - Implement validation
+      against weak passwords at the time of sign-up,
+      "/>
       </div>
-      {/* <p className="intro">
-        Broken authentication is a vulnerability exploited by attackers via
-        unauthorized account access. When the attacker is able to breach user
-        accounts, the authentication is "broken". The attacker can compromise
-        different elements associated with authentication such as usernames,
-        passwords, session ID vulnerabilities, and other login credentials. With
-        these different authentication elements, the attacker is capable of
-        bypassing authentication methods implemented by the web applications.
-        Once an attacker infiltrates the account, they can access or modify
-        information for which they are unauthorized to do so.
-      </p>
-      <table>
-        <tbody>
-          <tr>
-            <th>
-              <h1>Examples of Broken Authentication</h1>
-            </th>
-            <th classname="protection">
-              <h1>Protection Against Broken Authentication</h1>
-            </th>
-          </tr>
-          <tr>
-            <td className="brokenAuth">
-              <h2>Credential Stuffing</h2>
-              <p>
-                Credential stuffing is the process of entering known username,
-                email addresses and passwords from a database of login
-                credentials that were stolen by the attacker. This process is
-                usually done through exhaustive automated login requests against
-                a website. The attacker will use automated tools such as
-                Selenium (A tool mostly used for front-end testing) to attempt
-                logins using previously discovered login credentials until
-                successful.
-              </p>
-              <h2>Re-use of passwords and poor passwords</h2>
-              <p>
-                Re-use of passwords or use of poorly chosen passwords will put
-                users in a vulnerable state. There was a survey conducted
-                indicating that 81% of users have used the same password for two
-                or more sites and 25% of users will re-use the same password
-                across a majority of their accounts online. If an attacker is
-                able to breach data and access the passwords to one account,
-                then they can attempt to log into a different website with the
-                same credentials via credential stuffing.
-                <br></br>
-                <br></br>
-                If a poor password is chosen, then an attacker may attempt using
-                brute force to guess the password and eventually login.
-                <br></br>
-                <br></br>
-                In addition to this, if the attacker can gain access to the
-                password database and the password is not hashed and salted,
-                instead if it is stored in plain text then this would be a poorl
-                form of stored credentials that could lead to broken
-                authentication.
-              </p>
-              <h2>Application sessions incorrectly implemented</h2>
-              <p>
-                If a session timeout is not properly implemented or set, then an
-                attacker could could access the user's information after the
-                user had forgotten to logout.
-              </p>
-            </td>
-            <td className="brokenAuthProtection">
-              <h2>Protection against Broken Authentication</h2>
-              <p>
-                - Implement multi-factor authentication. Having this in place
-                can prevent large-scale automated attacks such as brute-force
-                and credentials stuffing. This would require the user to be
-                present and authenticating themselves in a different way other
-                than simply entering login credentials. 
-                <br></br>
-                - Implement validation
-                against weak passwords at the time of sign-up,
-              </p>
-            </td>
-          </tr>
-        </tbody>
-      </table> */}
     </TitleStyle>
   );
 };

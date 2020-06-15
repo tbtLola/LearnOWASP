@@ -193,7 +193,7 @@ const Side = (props) => {
 
         <Nav.Item className={`vulnerability ${setActiveSQL}`}>
           <Nav.Link as={Link} to="/sqlInjection" onClick={linkClickHandlerSQL}>
-            SQL Injections
+            1. SQL Injections
           </Nav.Link>
         </Nav.Item>
         <Nav.Item className={`vulnerability ${setActiveBrokenAuth}`}>
@@ -202,7 +202,7 @@ const Side = (props) => {
             to="/brokenAuthentication"
             onClick={linkClickHandlerBrokenAuth}
           >
-            Broken Authentication
+            2. Broken Authentication
           </Nav.Link>
         </Nav.Item>
         <Nav.Item className={`vulnerability ${setsensitiveDataExposure}`}>
@@ -211,12 +211,12 @@ const Side = (props) => {
             to="/sensitiveDataExposure"
             onClick={linkClickHandlerSensitiveDataExposure}
           >
-            Sensitive Data Exposure
+            3. Sensitive Data Exposure
           </Nav.Link>
         </Nav.Item>
         <Nav.Item className={`vulnerability ${setxmlEE}`}>
           <Nav.Link as={Link} to="/xmlEE" onClick={linkClickHandlerXmlEE}>
-            XML External Entities (XXE)
+            4. XML External Entities (XXE)
           </Nav.Link>
         </Nav.Item>
         <Nav.Item className={`vulnerability ${setbrokenAccessControl}`}>
@@ -225,7 +225,7 @@ const Side = (props) => {
             to="/brokenAccessControl"
             onClick={linkClickHandlerBrokenAccessControl}
           >
-            Broken Access control
+            5. Broken Access control
           </Nav.Link>
         </Nav.Item>
         <Nav.Item className={`vulnerability ${setsecurityMisconfig}`}>
@@ -234,12 +234,12 @@ const Side = (props) => {
             to="/securityMisconfig"
             onClick={linkClickHandlerSecurityMisconfig}
           >
-            Security misconfigurations
+            6. Security misconfigurations
           </Nav.Link>
         </Nav.Item>
         <Nav.Item className={`vulnerability ${setxss}`}>
           <Nav.Link as={Link} to="/xss" onClick={linkClickHandlerXss}>
-            Cross Site Scripting (XSS)
+            7. Cross Site Scripting (XSS)
           </Nav.Link>
         </Nav.Item>
         <Nav.Item className={`vulnerability ${setinsecureDeserialization}`}>
@@ -248,7 +248,7 @@ const Side = (props) => {
             to="/insecureDeserialization"
             onClick={linkClickHandlerInsecureDeserialization}
           >
-            Insecure Deserialization
+            8. Insecure Deserialization
           </Nav.Link>
         </Nav.Item>
         <Nav.Item className={`vulnerability ${setusingVulnerableComponents}`}>
@@ -257,7 +257,7 @@ const Side = (props) => {
             to="/usingVulnerableComponents"
             onClick={linkClickHandlerUsingVulnerableComponents}
           >
-            Using Components with known vulnerabilities
+            9. Using Components with known vulnerabilities
           </Nav.Link>
         </Nav.Item>
         <Nav.Item className={`vulnerability ${setinsufficientLogging}`}>
@@ -266,7 +266,7 @@ const Side = (props) => {
             to="/insufficientLogging"
             onClick={linkClickHandlerInsufficientLogging}
           >
-            Insufficient logging and monitoring
+            10. Insufficient logging and monitoring
           </Nav.Link>
         </Nav.Item>
         <Nav.Item className="vulnerabilityFiller"></Nav.Item>

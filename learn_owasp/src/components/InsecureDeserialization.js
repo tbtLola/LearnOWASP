@@ -3,40 +3,39 @@ import styled from "styled-components";
 import Employee from "../images/Employee.png";
 import UserObjectDeserializer from "../images/UserObjectDeserializer.png";
 import UserObjectSerializer from "../images/UserObjectSerializer.png";
+import Accordion from "../components/Accordion";
 
 const TitleStyle = styled.div`
-  height: 2500px;
+  .headerDisplay {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    margin-top: 0px;
+    background-color: rgb(227, 255, 172);
+    height: 133px;
+    padding-bottom: 10px;
+  }
+
   h1 {
     text-align: center;
+    font-family: "TestFont";
+    font-weight: normal;
+    font-style: normal;
+    padding-top: 50px;
+    padding-left: 300px;
+    text-align: center;
+    font-size: 50px;
   }
-  .accordion {
-    background-color: #eee;
-    color: #444;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 15px;
-    transition: 0.4s;
-    .active,
-    .accordion:hover {
-      background-color: #ccc;
-    }
 
-    .panel {
-      padding: 0 18px;
-      display: none;
-      background-color: white;
-      overflow: hidden;
-    }
+  .mainBody {
+    top: 250px;
+    position: relative;
   }
-  img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
+
+  .mainBody {
+    top: 250px;
+    position: relative;
   }
 `;
 
@@ -44,9 +43,14 @@ const InsecureDeserialization = () => {
   return (
     <TitleStyle>
       <div className="headerDisplay">
-        <h1>Insecure Deserialization</h1>
+        <h1>8.Insecure Deserialization</h1>
       </div>
-      <button class="accordion">What is Insecure Deserialization?</button>
+      <div className="mainBody">
+        <Accordion title="What is Insecure Deserialization?"/>
+        <Accordion title="Examples of Insecure Deserialization"/>
+        <Accordion title="How to Prevent Insecure Deserialization"/>
+      </div>
+      {/* <button class="accordion">What is Insecure Deserialization?</button>
       <div class="panel">
         <p>
           Serialization in the context of software development is the process of
@@ -121,7 +125,7 @@ const InsecureDeserialization = () => {
             </li>
           </ol>
         </p>
-      </div>
+      </div> */}
     </TitleStyle>
   );
 };

@@ -1,5 +1,4 @@
 import React from "react";
-
 import Accordion from "../components/Accordion";
 import styled from "styled-components";
 
@@ -38,29 +37,33 @@ const BrokenAccessControls = () => {
       <div className="headerDisplay">
         <h1>5. Broken Access Controls</h1>
       </div>
-      <button class="accordion">What are broken access controls?</button>
       <div className="mainBody">
-        <Accordion />
-        <Accordion />
-        <Accordion />
+        <Accordion 
+        title="What are Broken Access Controls?"
+        definition="Access control is sometimes used to describe authorization. It is how
+        websites control access to certain functions and contents to a subset
+        of users. This type of control is typically applied after
+        authorization and restricts what certain users can do. Larger and
+        complex websites can have a plethora of access controls, and requires
+        a high level of maintenance in order to ensure that these controls are
+        correct for the users. An example of an access control is supplying an
+        interface for administrators to manage the site. A large system may
+        have many users, each with a different level of access control. To
+        manage all these users, there typically is a site administrator that
+        is capable of controlling certain functions and possibly delegating
+        these access controls amongst different types of users. Because a site
+        administrator has control over the different functionalities, hackers
+        often attempt to exploit broken access controls."/>
+        <Accordion
+         title="Examples of Broken Access Control"
+         subheading="Implementation of unverified data"
+         definition=" This is a flaw if the website URL simply allows the attacker to enter
+         a different account value than intended (assuming that they know what
+         they are doing). Example,"/>
+        <Accordion title="How to Prevent Broken Access Control"/>
       </div>
       {/* <div class="panel">
-        <p>
-          Access control is sometimes used to describe authorization. It is how
-          websites control access to certain functions and contents to a subset
-          of users. This type of control is typically applied after
-          authorization and restricts what certain users can do. Larger and
-          complex websites can have a plethora of access controls, and requires
-          a high level of maintenance in order to ensure that these controls are
-          correct for the users. An example of an access control is supplying an
-          interface for administrators to manage the site. A large system may
-          have many users, each with a different level of access control. To
-          manage all these users, there typically is a site administrator that
-          is capable of controlling certain functions and possibly delegating
-          these access controls amongst different types of users. Because a site
-          administrator has control over the different functionalities, hackers
-          often attempt to exploit broken access controls.
-        </p>
+
       </div>
 
       <button class="accordion">Section 2</button>

@@ -1,10 +1,38 @@
 import React from "react";
 import styled from "styled-components";
+import Accordion from "../components/Accordion";
 
 const TitleStyle = styled.div`
-  height: 1500px;
+   .headerDisplay {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    margin-top: 0px;
+    background-color: rgb(227, 255, 172);
+    height: 133px;
+    padding-bottom: 10px;
+  }
+
   h1 {
     text-align: center;
+    font-family: "TestFont";
+    font-weight: normal;
+    font-style: normal;
+    padding-top: 50px;
+    padding-left: 300px;
+    text-align: center;
+    font-size: 40px;
+  }
+
+  .mainBody {
+    top: 250px;
+    position: relative;
+  }
+
+  .mainBody {
+    top: 250px;
+    position: relative;
   }
 `;
 
@@ -12,9 +40,14 @@ const VulnerableComponents = () => {
   return (
     <TitleStyle>
       <div className="headerDisplay">
-        <h1>Using Components with Known Vulnerabilities</h1>
+        <h1>9. Using Components with Known Vulnerabilities</h1>
       </div>
-      <button class="accordion">
+      <div className="mainBody">
+        <Accordion title="What are Components with Known Vulnerabilities?"/>
+        <Accordion title="Examples of Components with Known Vulnerabilities"/>
+        <Accordion title="How to Protect against components with known vulnerabilities"/>
+      </div>
+      {/* <button class="accordion">
         What are components with known vulnerabilities?
       </button>
       <div class="panel">
@@ -60,7 +93,7 @@ const VulnerableComponents = () => {
           this and is a priority in their backlog, especially if it is a
           dangerous flaw.
         </p>
-      </div>
+      </div> */}
     </TitleStyle>
   );
 };

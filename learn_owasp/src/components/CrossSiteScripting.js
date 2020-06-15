@@ -1,35 +1,40 @@
 // SOLUTION to reflection -> sanitize inputs or properly escape HTML characters-
-
 import React from "react";
 import styled from "styled-components";
+import Accordion from "../components/Accordion";
+
 
 const TitleStyle = styled.div`
-  height: 1500px;
+   .headerDisplay {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    margin-top: 0px;
+    background-color: rgb(227, 255, 172);
+    height: 133px;
+    padding-bottom: 10px;
+  }
+
   h1 {
     text-align: center;
+    font-family: "TestFont";
+    font-weight: normal;
+    font-style: normal;
+    padding-top: 50px;
+    padding-left: 300px;
+    text-align: center;
+    font-size: 50px;
   }
-  .accordion {
-    background-color: #eee;
-    color: #444;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 15px;
-    transition: 0.4s;
-    .active,
-    .accordion:hover {
-      background-color: #ccc;
-    }
+  
+  .mainBody {
+    top: 250px;
+    position: relative;
+  }
 
-    .panel {
-      padding: 0 18px;
-      display: none;
-      background-color: white;
-      overflow: hidden;
-    }
+  .mainBody {
+    top: 250px;
+    position: relative;
   }
 `;
 
@@ -37,9 +42,52 @@ const CrossSiteScripting = () => {
   return (
     <TitleStyle>
        <div className="headerDisplay">
-      <h1>Cross Site Scripting</h1>
+      <h1>7. Cross Site Scripting</h1>
       </div>
-      <button class="accordion">What is Cross Site Scripting?</button>
+      <div className="mainBody">
+        <Accordion 
+        title="What is Cross Site Scripting?"
+        definition="Cross site scripting is a code injection attack on the client side.
+        Malicious scripts are executed inside a web browser via a web
+        application injected with the malicious code. Websites such as forums
+        and blogs are common targets for carrying out cross-site scripting
+        attacks. There are various forms of cross-site scripting attacks"/>
+        <Accordion 
+        title="Examples of Cross Site Scripting"
+        subheading="Non-persistent aka Reflected"
+        definition="This is the simplest type of cross-site scripting vulnerability. The
+        flaw occurs when the web client sends data via HTTP query parameters,
+        which is directly parsed by server-side scripts and displayed on the
+        UI for the user without any proper sanitization of the results. This
+        type of attack begins when an input is sent by the client side, an
+        injected malicious script is 'reflected' from the web-server as a
+        response to the input. The malicious script may cointain malicious
+        code that executes on the user's web browser. Emails with shady URLs
+        are a common entry point for these attacks."
+        subheadingTwo="Peristent or stored attacks"
+        definitionTwo="Persistent attacks are a more permanent form of cross site scripting.
+        Data injected by the attacker is stored by the server and permanently
+        displayed on the UI. The vulnerability to this attack is present when
+        websites store client-side input and later services this data to other
+        users without validating user input before storing this data and
+        having it embedded in HTML responses. These web pages are exploited by
+        injecting malicious code through user input and having it stored for
+        future attacks. The malicious payload is sent to the user via the
+        servers as the browse the web application, there is no need for users
+        to click on any links (as in non-persitent attacks)."
+        subheadingThree="DOM Cross Site Scripting"
+        definitionThree="DOM stands for Document Object Model. DOM is a model used to represent
+        objects in HTML documents. HTML documents will have a respective DOM
+        element that is comprised of objects that represent properties of the
+        documents from the browsers perspective. The execution of client-side
+        scripts may use the DOM of an HTML page. Attackers commonly use DOM
+        objects as an entry point for this attack if there is no proper
+        sanitization when the data is written by the web application to the
+        DOM. Data could be maliciously manipulated to include malicious
+        javascript code as a part cross site scripting."/>
+        <Accordion title="How to Protect Against Cross Site Scripting"/>
+      </div>
+      {/* <button class="accordion">What is Cross Site Scripting?</button>
       <div class="panel">
         <p>
           Cross site scripting is a code injection attack on the client side.
@@ -154,7 +202,7 @@ const CrossSiteScripting = () => {
           up a new environment as these security details are clearly specified
           and understood.
         </p>
-      </div>
+      </div> */}
     </TitleStyle>
   );
 };
