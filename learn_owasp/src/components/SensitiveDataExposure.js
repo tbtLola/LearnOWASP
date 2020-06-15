@@ -1,8 +1,19 @@
 // ELABORATE ON REQUEST AND RESPONSE HTTP AND HTTPS
 import React from "react";
 import styled from "styled-components";
+import Accordion from "../components/Accordion";
 
 const TitleStyle = styled.div`
+  .headerDisplay {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    margin-top: 0px;
+    background-color: rgb(227, 255, 172);
+    height: 133px;
+    padding-bottom: 10px;
+  }
   html,
   body {
     height: 100%;
@@ -10,6 +21,13 @@ const TitleStyle = styled.div`
   flex-grow: 100;
   h1 {
     text-align: center;
+    font-family: "TestFont";
+    font-weight: normal;
+    font-style: normal;
+    padding-top: 50px;
+    padding-left: 300px;
+    text-align: center;
+    font-size: 50px;
   }
   h2 {
     text-align: center;
@@ -34,13 +52,24 @@ const TitleStyle = styled.div`
     width: 50%;
     margin: auto;
   }
+  .mainBody {
+    top: 250px;
+    position: relative;
+  }
 `;
 
 const SensitiveDataExposure = () => {
   return (
     <TitleStyle>
-      <h1>Sensitive Data Exposure</h1>
-      <p className="intro">
+      <div className="headerDisplay">
+        <h1>3. Sensitive Data Exposure</h1>
+      </div>
+      <div className="mainBody">
+       <Accordion/>
+       <Accordion/>
+       <Accordion/>
+      </div>
+      {/* <p className="intro">
         Sensitive data exposure is a common threat to many website users,
         especially when the sensitive data is not encrypted. Important
         information such as personal identifiable information (PII), health
@@ -95,7 +124,7 @@ const SensitiveDataExposure = () => {
             <td className="brokenAuthProtection"></td>
           </tr>
         </tbody>
-      </table>
+      </table> */}
     </TitleStyle>
   );
 };

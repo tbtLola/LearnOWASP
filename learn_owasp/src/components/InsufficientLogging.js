@@ -4,33 +4,30 @@ import Accordion from "../components/Accordion";
 import * as ReactBootStrap from "react-bootstrap";
 
 const TitleStyle = styled.div`
-
-
-
   body,
   .headerDisplay {
-    position:absolute; 
-    top:0px; 
-    left:0px; 
-    width:100%; 
-    margin-top:0px; 
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    margin-top: 0px;
     background-color: rgb(227, 255, 172);
-    height: 280px;
+    height: 133px;
     padding-bottom: 10px;
   }
-  
+
   h1 {
-    font-family:'TestFont';
-    font-weight:normal; 
-    font-style: normal; 
-    padding-top:50px; 
-    padding-left: 300px; 
-    text-align: left;
-    /* font-size: 50px; */
+    font-family: "TestFont";
+    font-weight: normal;
+    font-style: normal;
+    padding-top: 50px;
+    padding-left: 300px;
+    text-align: center;
+    font-size: 50px;
   }
-  .bodyStuff{
-    top:300px;
-    position:relative; 
+  .bodyStuff {
+    top: 250px;
+    position: relative;
   }
 `;
 
@@ -38,7 +35,7 @@ const InsufficientLogging = () => {
   return (
     <TitleStyle>
       <div className="headerDisplay">
-        <h1>Insufficient Logging</h1>
+        <h1>10. Insufficient Logging</h1>
       </div>
       <div className="bodyStuff">
         <Accordion

@@ -2,8 +2,18 @@ import React from "react";
 import styled from "styled-components";
 import XEE from "../images/XEE.png";
 import XEENetworkAttack from "../images/XEENetworkAttack.png";
-
+import Accordion from "../components/Accordion";
 const TitleStyle = styled.div`
+  .headerDisplay {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    margin-top: 0px;
+    background-color: rgb(227, 255, 172);
+    height: 133px;
+    padding-bottom: 10px;
+  }
   html,
   body {
     height: 100%;
@@ -11,6 +21,13 @@ const TitleStyle = styled.div`
   flex-grow: 100;
   h1 {
     text-align: center;
+    font-family: "TestFont";
+    font-weight: normal;
+    font-style: normal;
+    padding-top: 50px;
+    padding-left: 300px;
+    text-align: center;
+    font-size: 50px;
   }
   h2 {
     text-align: center;
@@ -35,13 +52,24 @@ const TitleStyle = styled.div`
     width: 50%;
     margin: auto;
   }
+  .mainBody {
+    top: 250px;
+    position: relative;
+  }
 `;
 
 const XmlExternalEntities = () => {
   return (
     <TitleStyle>
-      <h1>XML External Entities</h1>
-      <p className="intro">
+      <div className="headerDisplay">
+        <h1>4. XML External Entities</h1>
+      </div>
+      <div className="mainBody">
+        <Accordion />
+        <Accordion />
+        <Accordion />
+      </div>
+      {/* <p className="intro">
         External markup language (XML) is a tool similar to HTML that is used
         for storing and transporting data. XML is essentially data wrapped in
         tags. Vulnerable XML processors can be exploited by hackers if they can
@@ -92,7 +120,7 @@ const XmlExternalEntities = () => {
             <td className="brokenAuthProtection"></td>
           </tr>
         </tbody>
-      </table>
+      </table> */}
     </TitleStyle>
   );
 };

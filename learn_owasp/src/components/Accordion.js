@@ -3,12 +3,11 @@ import styled from "styled-components";
 import DownArrow from "./SideArrow";
 
 const AccordionSection = styled.div`
-  
   width: 70%;
   display: flex;
   flex-direction: column;
-  margin:auto;
-  
+  margin: auto;
+
   .accordion {
     background-color: #eee;
     color: #444;
@@ -19,8 +18,8 @@ const AccordionSection = styled.div`
     border: none;
     outline: none;
     transition: background-color 0.6s ease;
-    border-radius:12px; 
-    border:solid; 
+    border-radius: 12px;
+    border: solid;
   }
 
   .accordion:hover,
@@ -42,11 +41,11 @@ const AccordionSection = styled.div`
   }
 
   .accordionContent {
-    margin:auto; 
+    margin: auto;
     background-color: white;
     overflow: hidden;
     transition: max-height 0.6s ease;
-    width:98%; 
+    width: 98%;
 
     /* max-height: 0; */
   }
@@ -55,13 +54,37 @@ const AccordionSection = styled.div`
     /** Font stuff here */
     padding: 18px;
   }
+
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    padding-top:10px; 
+  }
+
+  p {
+    width: 90%;
+    margin: auto;
+  }
+
+  /* .definition {
+    width: 90%;
+    margin: auto;
+  } */
+
+  h2 {
+    font-family: "TestFont";
+    font-weight: normal;
+    font-style: normal;
+    text-align: center;
+  }
 `;
 
 function Accordion(props) {
   const [setActive, setActiveState] = useState("");
   const [setHeight, setHeightState] = useState("0px");
   const [setRotate, setRotateState] = useState("accordionIcon");
-
   const content = useRef(null);
 
   function onClickAccordionHandler() {
@@ -80,7 +103,7 @@ function Accordion(props) {
         className={`accordion ${setActive}`}
         onClick={onClickAccordionHandler}
       >
-        <p className="accordionTitle">{props.title}</p>
+        <h2 className="accordionTitle">{props.title}</h2>
         <DownArrow className={`${setRotate}`} width={10} fill={"#777"} />
       </button>
       <div
@@ -88,6 +111,19 @@ function Accordion(props) {
         style={{ maxHeight: `${setHeight}` }}
         className="accordionContent"
       >
+        <h2>{props.subheading}</h2>
+        <p>{props.definition}</p>
+        <img src={props.image} alt="" />
+
+        <h2>{props.subheadingTwo}</h2>
+        <p>{props.definitionTwo}</p>
+        <img src={props.imageTwo} alt="" />
+       
+       
+        <h2>{props.subheadingThree}</h2>
+        <p>{props.definitionThree}</p>
+        <img src={props.imageThree} alt="" />
+        
         <div
           className="accordionText"
           dangerouslySetInnerHTML={{ __html: props.content }}

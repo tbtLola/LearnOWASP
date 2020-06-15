@@ -43,7 +43,9 @@ const TitleStyle = styled.div`
 const InsecureDeserialization = () => {
   return (
     <TitleStyle>
-      <h1>Insecure Deserialization</h1>
+      <div className="headerDisplay">
+        <h1>Insecure Deserialization</h1>
+      </div>
       <button class="accordion">What is Insecure Deserialization?</button>
       <div class="panel">
         <p>

@@ -36,7 +36,9 @@ const TitleStyle = styled.div`
 const CrossSiteScripting = () => {
   return (
     <TitleStyle>
+       <div className="headerDisplay">
       <h1>Cross Site Scripting</h1>
+      </div>
       <button class="accordion">What is Cross Site Scripting?</button>
       <div class="panel">
         <p>

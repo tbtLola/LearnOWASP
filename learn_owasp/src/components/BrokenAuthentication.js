@@ -1,7 +1,18 @@
 import React from "react";
 import styled from "styled-components";
-
+import Accordion from "../components/Accordion";
 const TitleStyle = styled.div`
+   .headerDisplay {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    margin-top: 0px;
+    background-color: rgb(227, 255, 172);
+    height: 133px;
+    padding-bottom: 10px;
+  }
+  
   html,
   body {
     height: 100%;
@@ -9,6 +20,13 @@ const TitleStyle = styled.div`
   flex-grow: 100;
   h1 {
     text-align: center;
+    font-family: "TestFont";
+    font-weight: normal;
+    font-style: normal;
+    padding-top: 50px;
+    padding-left: 300px;
+    text-align: center;
+    font-size: 50px;
   }
   h2 {
     text-align: center;
@@ -33,13 +51,28 @@ const TitleStyle = styled.div`
     width: 50%;
     margin: auto;
   }
+  .bodyDisplay {
+    top: 250px;
+    position: relative;
+  }
 `;
 
 const BrokenAuthentication = () => {
   return (
     <TitleStyle>
-      <h1>Broken Authentication</h1>
-      <p className="intro">
+      <div className="headerDisplay">
+      <h1>2. Broken Authentication</h1>
+      </div>
+      <div className="bodyDisplay">
+      <Accordion
+      title="What is Broken Authentication?"
+      definition=""/>
+      <Accordion
+      title="Examples of Broken Authentication"/>
+      <Accordion
+      title="Preventing Broken Authentication"/>
+      </div>
+      {/* <p className="intro">
         Broken authentication is a vulnerability exploited by attackers via
         unauthorized account access. When the attacker is able to breach user
         accounts, the authentication is "broken". The attacker can compromise
@@ -117,7 +150,7 @@ const BrokenAuthentication = () => {
             </td>
           </tr>
         </tbody>
-      </table>
+      </table> */}
     </TitleStyle>
   );
 };

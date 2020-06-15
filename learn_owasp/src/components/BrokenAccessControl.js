@@ -1,45 +1,50 @@
 import React from "react";
 
-
+import Accordion from "../components/Accordion";
 import styled from "styled-components";
 
 const TitleStyle = styled.div`
-  
-  
+  .headerDisplay {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    margin-top: 0px;
+    background-color: rgb(227, 255, 172);
+    height: 133px;
+    padding-bottom: 10px;
+  }
+
   h1 {
     text-align: center;
+    font-family: "TestFont";
+    font-weight: normal;
+    font-style: normal;
+    padding-top: 50px;
+    padding-left: 300px;
+    text-align: center;
+    font-size: 50px;
   }
-  .accordion {
-    background-color: #eee;
-    color: #444;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 15px;
-    transition: 0.4s;
-    .active,
-    .accordion:hover {
-      background-color: #ccc;
-    }
 
-    .panel {
-      padding: 0 18px;
-      display: none;
-      background-color: white;
-      overflow: hidden;
-    }
+  .mainBody {
+    top: 250px;
+    position: relative;
   }
 `;
 
 const BrokenAccessControls = () => {
   return (
     <TitleStyle>
-      <h1>Broken Access Controls</h1>
+      <div className="headerDisplay">
+        <h1>5. Broken Access Controls</h1>
+      </div>
       <button class="accordion">What are broken access controls?</button>
-      <div class="panel">
+      <div className="mainBody">
+        <Accordion />
+        <Accordion />
+        <Accordion />
+      </div>
+      {/* <div class="panel">
         <p>
           Access control is sometimes used to describe authorization. It is how
           websites control access to certain functions and contents to a subset
@@ -87,7 +92,7 @@ const BrokenAccessControls = () => {
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat.
         </p>
-      </div>
+      </div> */}
     </TitleStyle>
   );
 };

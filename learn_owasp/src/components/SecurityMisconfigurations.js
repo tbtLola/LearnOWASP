@@ -33,7 +33,9 @@ const TitleStyle = styled.div`
 const SecurityMisconfigurations = () => {
   return (
     <TitleStyle>
-      <h1>Security Misconfigurations</h1>
+      <div className="headerDisplay">
+        <h1>Security Misconfigurations</h1>
+      </div>
       <button class="accordion">What are security misconfigurations?</button>
       <div class="panel">
         <p>

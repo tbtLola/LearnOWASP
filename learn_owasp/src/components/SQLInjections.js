@@ -5,157 +5,97 @@ import { InputGroup, FormControl } from "react-bootstrap";
 import React from "react";
 import styled from "styled-components";
 import sqlinjectionOne from "../images/sqlinjectionOne.png";
+import sqlinjectionTwo from "../images/SqlInjectionTwo.png";
+import sqlinjectionThree from "../images/SqlInjectionThree.png";
+import sqlinjectionFour from "../images/SqlInjectionFour.png";
+import Accordion from "../components/Accordion";
 
 const TitleStyle = styled.div`
+  .headerDisplay {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    margin-top: 0px;
+    background-color: rgb(227, 255, 172);
+    height: 133px;
+    padding-bottom: 10px;
+  }
   h1 {
     text-align: center;
-  }
-  h2 {
+    font-family: "TestFont";
+    font-weight: normal;
+    font-style: normal;
+    padding-top: 50px;
+    padding-left: 300px;
     text-align: center;
+    font-size: 50px;
   }
-  p {
-    padding-left: 20px;
-  }
-  img {
-    padding-left: 550px;
-  }
-  .mb-3 {
-    text-align: center;
-  }
-  table td{
-    vertical-align:top;
-  }
-  .vulnerableSQL {
-    width: 50%;
-    border-right:solid;
-    border-right-color:red;
-
-  }
-  .protectedSQL {
-    width: 50%;
-    border-left:solid;
-    border-left-color: blue; 
-  }
-  .codeContainer {
-    background-color: lightgrey;
+  .mainBody {
+    top: 250px;
+    position: relative;
   }
 `;
 
 const SQLInjections = () => {
   return (
     <TitleStyle>
-      <h1>SQL Injections</h1>
-      <div className="textBoxOne">
-        <p>
-          SQL injection is an attack on the database through an 'injection' of a
+      <div className="headerDisplay">
+        <h1>1. SQL Injections</h1>
+      </div>
+      <div className="mainBody">
+        <Accordion
+          title="What is a SQL Injection?"
+          definition=" SQL injection is an attack on the database through an 'injection' of a
           SQL query, often performed on websites without safe-guards in place
           around inputs. The attacker performing this attack can cause malicious
           commands to be executed or gain access to data without authorization.
-          <br />
-          <br />
           Where there are inputs on a website, any attacker can enter a SQL
           query (if the backend framework is built using SQL), that would run in
-          your database unknowingly.
-        </p>
-        <img src={sqlinjectionOne} alt="figureOne" />
-        <p>
-          Figure one above is a simplified diagram of how a SQL injection can
+          your database unknowingly. The figure below is a simplified diagram of how a SQL injection can
           work. Attackers can inject broken malicious instructions, these
           instructions are parsed and fed to an query expecting further input
-          before being applied to the database.
-        </p>
+          before being applied to the database."
+          image={sqlinjectionOne}
+        />
+        <Accordion
+          title="Examples of SQL Injection"
+          content=""
+          subheading="Exploiting 1 = 1 is always true"
+          definition="Consider the java exercpt below. There is a method that could be used to query the database.
+           This set up may seem harmless but attackers could exploit the way that this query is written. If this is
+           the way information is retrieved when a user enters their employee ID into an input, they can use the
+           property that 1 = 1 is always true to possibly get other information. Suppose that this query renders the
+           response on the front end. A user for example could enter '133t OR 1 = 1' in an input box and have the
+           response display sensitive information tied to the table from the query onto the front end. 
+           This in a way ties to other vulnerabilities that will be discussed on this site."
+          image={sqlinjectionTwo}
+          subheadingTwo="Exploiting '=' is always true"
+          definitionTwo="Similar to the above, the statement OR = is always true. In this case a user could enter that
+           into an input box and possibly steal personal data"
+          imageTwo={sqlinjectionThree}
+          subheadingThree="Exploiting SQL databases that support multiple queries"
+          definitionThree="Databases that support batched queries can be prone to a different form of SQL injection.
+         Specifically, attackers add an additional query as a part of the input to do something malicious to the backend. 
+         For example, consider the snippet below. The attacker could enter in an employee id followed by a ';' semi-colon to
+         separate it with a different query or command such as 'DROP TABLE companyInformation' which would change the schema."
+          imageThree={sqlinjectionFour}
+        />
+        <Accordion
+          title="Preventing SQL Injection "
+          content=""
+          definition="Input sanitization is often brought up when discussing protection against web vulnerabilities. Validation against what 
+         is being entered by the user could prevent malicious SQL from being executed in the database. Developers could reject suspicious inputs.
+         For example, the 'OR 1=1' added the an end of the input could be rejected if it is detected. Matching regular expressions is another way to 
+         filter out suspicious inputs."
+        />
+      </div>
 
-        <table>
-          <tbody>
-            <tr>
-              <th>
-                <h1>Examples of dangerous usages of inputs in SQL statement</h1>
-              </th>
-              <th>
-                <h1>Protection against SQL Injections</h1>
-              </th>
-            </tr>
-            <tr>
-              <td className="vulnerableSQL">
-                <h2>Exploiting 1 = 1 is always true</h2>
-                <p>
-                  Consider a java string variable with the SQL statement:
-                  <br />
-                  <br />
-                  <code>String employeeId = getEmployeeId(); </code>
-                  <br />
-                  <code>
-                    String selectUserSql = "SELECT * FROM employees WHERE
-                    employeeID = " + employeeID;{" "}
-                  </code>
-                </p>
-                <p>
-                  This query may seem harmless. But if an attacker entered the
-                  following in the input as shown below:
-                  <br />
-                  <br />
-                  <code>112345 OR 1 = 1</code>
-                  <br />
-                  Try it for yourself, and see what happens!
-                </p>
-                <InputGroup className="mb-3">
-                  <InputGroup.Prepend></InputGroup.Prepend>
-                  <FormControl
-                    placeholder="Employee ID"
-                    aria-label="Employee ID"
-                    aria-describedby="basic-addon1"
-                  />
+      {/* <div className="textBoxOne">
+  
+               
+                
                 </InputGroup>
-                <p>
-                  This could be dangerous as the employees table could contain
-                  other sensitive information susch as SSN/GIN or addresses
-                </p>
-                <h2>Exploiting '=' is always true</h2>
-                
-                  Consider a java string variable with the SQL statement:
-                  <br />
-                  <br />
-                  <div className="codeContainer">
-                    <code>String username = getUsername("username");</code>
-                    <br />
-                    <code>
-                      String userPassword = getPassword("userpassword");
-                    </code>
-                    <br />
-                    <code>
-                      String sql = 'SELECT * FROM employees WHERE name ="' +
-                      username + '" AND password ="' + userPassword + '"';
-                    </code>
-                  </div>
-                  <br />
-                  The result would look like:
-                  <br />
-                  <code>
-                    SELECT * FROM employees WHERE name = "Tony Tea" AND password
-                    = "poorPassword"
-                  </code>
-                  <br />
-                  <p>
-                    Since OR ""="" is always a true statement, a hacker could
-                    enter that into the input to retrieve information.
-                  </p>
-                  <InputGroup className="mb-3">
-                    <InputGroup.Prepend></InputGroup.Prepend>
-                    <FormControl
-                      placeholder="username"
-                      aria-label="username"
-                      aria-describedby="basic-addon1"
-                    />
-                  </InputGroup>
-                  <InputGroup className="mb-3">
-                    <InputGroup.Prepend></InputGroup.Prepend>
-                    <FormControl
-                      placeholder="password"
-                      aria-label="password"
-                      aria-describedby="basic-addon1"
-                    />
-                  </InputGroup>
-                
                 <h2>Exploiting SQL databases that support multiple queries</h2>
                 <p>
                   Some SQL databases will support multiple queries in a single
@@ -173,7 +113,7 @@ const SQLInjections = () => {
             </tr>
           </tbody>
         </table>
-      </div>
+      </div> */}
     </TitleStyle>
   );
 };

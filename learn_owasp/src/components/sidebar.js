@@ -4,6 +4,8 @@ import { withRouter } from "react-router";
 import styled from "styled-components";
 
 const StyledSideBar = styled.div`
+  border:none; 
+  border-radius: 50px; 
   .sidebar {
     position: fixed;
     top: 0;
@@ -12,25 +14,18 @@ const StyledSideBar = styled.div`
     min-height: 100vh !important;
     z-index: 100;
     box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
+    
   }
   .vulnerability {
-    border-bottom: solid;
+    /* border-bottom: solid;
     border-bottom-color: gray;
-    border-bottom-width: 0.2px;
+    border-bottom-width: 0.2px; */
     padding-top: 20px;
     padding-bottom: 20px;
     font-size: 13px;
     text-align: center;
   }
-  .vulnerabilitySQL {
-    border-bottom: solid;
-    border-bottom-color: gray;
-    border-bottom-width: 0.2px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    font-size: 13px;
-    text-align: center;
-  }
+
   a {
     text-decoration: none;
     color: black;
@@ -39,26 +34,34 @@ const StyledSideBar = styled.div`
     text-decoration: underline;
   }
 
-  .NavTitle:hover{
-    background-color: rgb(255, 248, 172);
+  .NavTitle:hover {
+    background-color: rgb(227, 255, 172);
   }
   .NavTitle {
-    border-bottom: solid;
-    font-size: 40px;
+    /* border-radius: 0px 50px 0px 0px;  */
+
+    font-family: "TestFont";
+    font-weight: normal;
+    font-style: normal;
+    font-size: 60px;
     text-align: center;
     background-color: rgb(255, 227, 172);
   }
 
-  .vulnerability:hover{
+  .vulnerability:hover {
     background-color: rgb(255, 248, 172);
   }
   .vulnerability {
     background-color: rgb(255, 227, 172);
+    font-family: "TestFont";
+    font-weight: normal;
+    font-style: normal;
   }
 
   .active {
     background-color: rgb(255, 248, 172);
   }
+
 
   .vulnerabilityFiller {
     border-bottom: solid;
@@ -68,8 +71,11 @@ const StyledSideBar = styled.div`
     font-size: 13px;
     text-align: center;
     background-color: rgb(255, 227, 172);
-    height:100%; 
+    height: 100%;
+  }
 
+  .activeNavTitle {
+    background-color: rgb(227, 255, 172);
   }
 `;
 
@@ -112,7 +118,7 @@ const Side = (props) => {
     setActiveStateUsingVulnerableComponents("");
     setActiveStateInsufficientLogging("");
     setActiveStateNavTitle("");
-    }
+  }
 
   function linkClickHandlerSQL() {
     clearEveryThing();
@@ -168,12 +174,10 @@ const Side = (props) => {
       setinsufficientLogging === "" ? "active" : ""
     );
   }
-  
+
   function linkClickHandlerNavTitle() {
     clearEveryThing();
-    setActiveStateNavTitle(
-      setActiveNavTitle === "" ? "active" : ""
-    );
+    setActiveStateNavTitle(setActiveNavTitle === "" ? "activeNavTitle" : "");
   }
 
   return (
@@ -182,8 +186,8 @@ const Side = (props) => {
         <Nav.Item className={`NavTitle ${setActiveNavTitle}`}>
           <Nav.Link as={Link} to="/home" onClick={linkClickHandlerNavTitle}>
             Learn OWASP
-            <br/>
-            Top 10 
+            <br />
+            Top 10
           </Nav.Link>
         </Nav.Item>
 

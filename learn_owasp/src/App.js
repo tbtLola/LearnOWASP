@@ -22,9 +22,10 @@ const Application = styled.div`
 
   .vulnerabilityPageContainer {
     background-color: rgb(255, 248, 172);
-    padding-left: 272px;
+    padding-left: 400px;
     padding-top:25px;
     height: 1500px;
+    overflow-y:auto;
   }
 `;
 

@@ -11,7 +11,9 @@ const TitleStyle = styled.div`
 const VulnerableComponents = () => {
   return (
     <TitleStyle>
-      <h1>Using Components with Known Vulnerabilities</h1>
+      <div className="headerDisplay">
+        <h1>Using Components with Known Vulnerabilities</h1>
+      </div>
       <button class="accordion">
         What are components with known vulnerabilities?
       </button>
@@ -30,8 +32,7 @@ const VulnerableComponents = () => {
           exploited by automated tools.
         </p>
       </div>
- 
- 
+
       <button class="accordion">
         Flaws of using a components with known vulnerabilities
       </button>
@@ -56,7 +57,8 @@ const VulnerableComponents = () => {
         <p>
           Obviously, keep your components up to date. As soon as a bug is
           discovered in the framework, make sure that the developrs are aware of
-          this and is a priority in their backlog, especially if it is a dangerous flaw. 
+          this and is a priority in their backlog, especially if it is a
+          dangerous flaw.
         </p>
       </div>
     </TitleStyle>
