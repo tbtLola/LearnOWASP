@@ -134,19 +134,21 @@ const BrokenAuthentication = () => {
       than simply entering login credentials. An attacker would be required to use a more 
       sophisticated tool to bypass this. For example, a user would enter their log in credentials and afterwards
       would receive a text with a number that they are asked to enter into the front end in order to 
-      log into their account. "
+      log into their account."
       imgBrokAuth={BrokAuthThree}
-      definitionTwo = "Implementing validation against weak passwords at the time of sign-up.
+
+      definitionTwo="Implementing validation against weak passwords at the time of sign-up.
       This is a way to prevent users from entering in a poor password that can be easily guessed
       through brute force or just randomly. On the topic of sign up and credentials, it is also important
       to ensure that the path for credential recovery is secure, such that only the intended user
       is able to access this path when needed. Limiting failed log in attempts will help guard against
       a credential stuffing attack."
-      definitionThree ="To help protect and secure user sessions, make sure that TLS/SSL is implemented on 
+      definitionThree="To help protect and secure user sessions, make sure that TLS/SSL is implemented on 
       all pages and not just specifically the log in page. Ensure that session IDs are always random and not 
       something that follows a specific pattern. Session IDs should not be in the URL. Implementation of 
       session timeouts is popular amongst web application in the event that a user leaves their computer, an attacker
-      would be locked out of that session."/>
+      would be locked out of that session."
+      />
       </div>
     </TitleStyle>
   );
