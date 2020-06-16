@@ -60,7 +60,7 @@ const AccordionSection = styled.div`
     margin-left: auto;
     margin-right: auto;
     width: 90%;
-    padding-top:10px; 
+    padding-top: 10px;
   }
 
   p {
@@ -78,6 +78,21 @@ const AccordionSection = styled.div`
     font-weight: normal;
     font-style: normal;
     text-align: center;
+  }
+
+  .insecDes{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+    padding-top: 10px;
+  }
+  .imgBrokAuth{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    padding-top: 10px;
   }
 `;
 
@@ -113,21 +128,33 @@ function Accordion(props) {
       >
         <h2>{props.subheading}</h2>
         <p>{props.definition}</p>
-        <img src={props.image} alt="" />
+        <img src={props.image} alt=""/> 
+        <img src={props.imageInsec} alt="" className="insecDes"/>
+        <img src={props.imgBrokAuth} alt="" className="imgBrokAuth"/>
 
         <h2>{props.subheadingTwo}</h2>
         <p>{props.definitionTwo}</p>
         <img src={props.imageTwo} alt="" />
-       
-       
+
         <h2>{props.subheadingThree}</h2>
         <p>{props.definitionThree}</p>
         <img src={props.imageThree} alt="" />
-        
+        <img src={props.imgBrokAuthOne} alt="" className="imgBrokAuth"/>
+
+        <h2>{props.subheadingFour}</h2>
+        <p>{props.definitionFour}</p>
+        <img src={props.imageFour} alt="" />
+        <p>{props.definitionFive}</p>
+        <p>{props.definitionSix}</p>
+        <p>{props.definitionSevenr}</p>
+        <p>{props.definitionEight}</p>
         <div
           className="accordionText"
           dangerouslySetInnerHTML={{ __html: props.content }}
         ></div>
+        <ol>
+          
+        </ol>
       </div>
     </AccordionSection>
   );
