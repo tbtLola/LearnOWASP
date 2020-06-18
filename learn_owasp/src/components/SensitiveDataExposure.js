@@ -67,13 +67,16 @@ const SensitiveDataExposure = () => {
       <div className="mainBody">
        <Accordion
         title="What is Sensitive Data Exposure?"
-        definition=" Sensitive data exposure is a common threat to many website users,
+        definition="Sensitive data exposure is a common threat to many website users,
         especially when the sensitive data is not encrypted. Important
         information such as personal identifiable information (PII), health
-        records, credit cards, and personal data require protection online. Not
+        records, and credit cards are classified as sensitive data. These are the categories
+        of data that should not be shared with anyone else other than yourself. Not
         only does there need to be some form of encryption, but it should be
         strong. A strong key generation, algorithm, and protocols should be
-        implemented to ensure that sensitive data is not exposed."/>
+        implemented to ensure that sensitive data is not exposed. Unfortunately there are 
+        applications out there that store personal data as plain text. This is incredibly risky
+        in the event that there is a data breach."/>
        <Accordion
         title="Examples of Sensitive Data Exposure"
         subheading="Improper decryption"

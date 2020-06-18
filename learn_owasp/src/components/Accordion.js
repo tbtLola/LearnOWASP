@@ -134,17 +134,20 @@ function Accordion(props) {
 
         <h2>{props.subheadingTwo}</h2>
         <p>{props.definitionTwo}</p>
+        <img src={props.imageXXEXml} alt=""/>
         <img src={props.imageTwo} alt="" />
 
         <h2>{props.subheadingThree}</h2>
         <p>{props.definitionThree}</p>
         <img src={props.imageThree} alt="" />
         <img src={props.imgBrokAuthOne} alt="" className="imgBrokAuth"/>
+        <img src={props.imageBrokenAcct} alt="" className="imgBrokAuth"/>
 
         <h2>{props.subheadingFour}</h2>
         <p>{props.definitionFour}</p>
         <img src={props.imageFour} alt="" />
         <p>{props.definitionFive}</p>
+        <img src={props.imageFive} alt="" />
         <p>{props.definitionSix}</p>
         <p>{props.definitionSevenr}</p>
         <p>{props.definitionEight}</p>

@@ -1,8 +1,13 @@
+//https://cheatsheetseries.owasp.org/cheatsheets/XML_External_Entity_Prevention_Cheat_Sheet.html
+
 import React from "react";
 import styled from "styled-components";
-import XEE from "../images/XEE.png";
-import XEENetworkAttack from "../images/XEENetworkAttack.png";
 import Accordion from "../components/Accordion";
+import XXEXML from "../images/xxeXML.png";
+import XXEHTML from "../images/xxeHTML.png"
+import XML2A from "../images/XML2a.png";
+import XML2B from "../images/XML2b.png"
+import XML2C from "../images/XML2c.png"
 const TitleStyle = styled.div`
   .headerDisplay {
     position: absolute;
@@ -67,27 +72,79 @@ const XmlExternalEntities = () => {
       <div className="mainBody">
         <Accordion 
         title="What are XML External Entities?"
-        definition="External markup language (XML) is a tool similar to HTML that is used
-        for storing and transporting data. XML is essentially data wrapped in
-        tags. Vulnerable XML processors can be exploited by hackers if they can
+        definition="Lets begin this section by explaining what XML is and why
+        it is used in web applications. Extensible markup language (XML) is a tool
+        similar to HTML used for storing and transporting data. XML is essentially
+        data wrapped in tags. Below in Figure 1a is a sample TLD file containing 
+        XML (note the XML version at the top). XML is used to characterize a set 
+        of rules for document encodings in a standard format both readable to human 
+        and machine. XML is a versatile representation of various forms of information
+        intended to share structured data online. Below in figure 1a is a sample of 
+        what an XML document looks like. Since XML is a standard in web applications, 
+        software is developed to send, receive, parse, store, and display data received
+        from XML. Though XML may look similar to HTML (Hyper Text Markup Language),
+        it is worth noting that XML was designed to hold data with the primary focus on
+        the content and HTML was designed to display the data with it's primary focus being
+        how it looks on the front end. Figure 1b is an example of what an HTML document
+        looks like. Another notable difference is that XML tags are not predefined while
+        HTML tags are."
+        definitionTwo="Figure 1a"
+        imageXXEXml={XXEXML}
+        definitionThree="Figure 1b"
+        imageThree={XXEHTML}
+        imageXXEHTML={XXEXML}
+        definitionFour="Vulnerable XML processors can be exploited by hackers if they can
         take advantage of the processor to upload inappropriate content in the
         XML document, or exploit varying dependences in the code. There are
         various impacts of XEE flaws, especially if an applications accepts XML
-        files from untrusted sources."
+        files from untrusted sources. These kind of attacks often target the file systems on 
+        the application server, enabling attackers to view files containing data. Attackers
+        may also leverage this vulnerability to interact with the backend systems or other 
+        endpoints that the application itself usually interacts with."
+        
+        
         />
         <Accordion
         title="Examples of XML External Entities"
         subheading="Attempting To Extract Data From the Server"
         definition="Since XML allows the transport of data, an attacker may include
-        a malicious line of code in an attempt to extract data from the
-        server. This may look something like:"
-        subheadingTwo="Attempting to search the server's network"
-        definitionTwo="An attacker can try to maliciously test the server's private
-        network by replacing the entity line above with:"
-        subheadingThree="Attempting a denial of service (DOS) attack"
-        definitionThree="An attacker can maliciously try to send an endless file as part
-        of a denial of service attack"/>
-        <Accordion title="How to protect against XML External Entities"/>
+        a malicious line of code in an attempt to extract files from the
+        server. The XML can be modified to attempt this attack. One way that this can be done
+        is by introducing a 'DOCTYPE' element that characterizes an external entity with
+        the direct path to the targetted file. Consider Figure 2a, an example that
+        requests an employee's address by submitting the XML. Figure 2b illustrates 
+        a malicious XML statement with the 'DOCTYPE' element with the assumption that
+        there are no guards against an XXE attack. the file /etc/passwd can be retrieved. The
+        external entity &xxe; is defined in the XXE payload with a value containing contents from
+        the password file. These contents are returned as part of the response. "
+        definitionTwo="Figure 2a"
+        imageTwo={XML2A}
+        definitionThree="Figure 2b"
+        imageThree={XML2B}
+        subheadingFour="SSRF attacks via XXE"
+        definitionFour="There are other examples of XXE attacks such as server side request
+        forgery attacks. This flaw can be abused by an attacker by using the server side
+        application to make HTTP requests to any URL accessible by the server. This attack
+        requires a target URL. Using a value from a defined entity returned in a XML response, an
+        attacker can view a URL response. This looks something like in figure 2c."
+        definitionFive="Figure 2c"
+        imageFive={XML2C}
+        />
+        <Accordion 
+        title="How to protect against XML External Entities"
+        definition="A majortiy of XXE vulnerabilities are due to dangerous features used by an application's
+        XML parsing library. Some of the functionality from these libraries are not used in the application but
+        are enabled anyways (misconfiguration issues). Disabling unused functionality can certainly help patch 
+        some of these vulnerabilities."
+        definitionTwo="OWASP mentions that the safest way to guard against XXE attacks is to completely disable
+        the use of external entities which is sometimes not ideal given the circumstances. Like most of the other
+        vulnerabilities listed on this website, XXE attacks can lead to breach of confidential data, a denial-of-service
+        attack, and the other examples listed above."
+        definitionThree="It can be useful to have integration tests for an end-to-end process covering the XML responses
+        as there tends to be some potentially vulnerable information in there. Of course, this is just one element to web
+        security and should be used in conjunction with the preventions against all the other vulnerabilities discussed on 
+        here."
+        />
       </div>
     </TitleStyle>
   );

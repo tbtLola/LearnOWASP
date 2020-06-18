@@ -1,7 +1,8 @@
 import React from "react";
 import Accordion from "../components/Accordion";
 import styled from "styled-components";
-
+import BrokenAccCont from "../images/BrokenAccessControl.png";
+import BrokenAccCont2 from "../images/BrokenAccControl2.png";
 const TitleStyle = styled.div`
   .headerDisplay {
     position: absolute;
@@ -40,62 +41,53 @@ const BrokenAccessControls = () => {
       <div className="mainBody">
         <Accordion 
         title="What are Broken Access Controls?"
-        definition="Access control is sometimes used to describe authorization. It is how
-        websites control access to certain functions and contents to a subset
-        of users. This type of control is typically applied after
-        authorization and restricts what certain users can do. Larger and
-        complex websites can have a plethora of access controls, and requires
-        a high level of maintenance in order to ensure that these controls are
-        correct for the users. An example of an access control is supplying an
-        interface for administrators to manage the site. A large system may
-        have many users, each with a different level of access control. To
-        manage all these users, there typically is a site administrator that
-        is capable of controlling certain functions and possibly delegating
-        these access controls amongst different types of users. Because a site
-        administrator has control over the different functionalities, hackers
-        often attempt to exploit broken access controls."/>
+        definition="Access control is the restrictions on which users (or what entities) can
+        carry out certain actions, or access certain resources on a web application. Essentially it
+        is how websites control access to certain functions and contents to a subset of users. Large and
+        complex websites can have a plethora of access controls as not all users will have the same level 
+        of control (that would be chaotic), which is why they require a high level of maintenance in order
+        to ensure that these controls are correct for their user base. An example of an access control is
+        supplying an interface for administrators so that they can manage the site, this kind of control is
+        not enabled for typical users. A large system will have many different users-types, each with a different
+        level of access control. To manage all these users, there typically is a site administrator that
+        is capable of controlling certain functionalities and possibly delegating these access controls amongst
+        the users. Because a site administrator has control over the different functionalities, hackers
+        often attempt to exploit broken access controls."
+        definitionTwo="Like many of the other vulnerabilities here, broken access control can lead to a 
+        data breach as a foreign entity may be able to access data that is not meant for them. Typically they
+        would not need to have any form of remote code execution or try to 'hack' into the site, instead they simply
+        may search for a loop hole or a mistake in the access controls and authorize themselves that way. It's worth 
+        noting that a data breach is not the only concern here, in some cases an attacker could manipulate data or
+        steal money online."
+        definitionThree="Below is a simple diagram illustrating the different kinds of users, that with broken controls,
+        an attacker can gain access to their intended functionalities."
+        imageBrokenAcct={BrokenAccCont}
+        />
         <Accordion
          title="Examples of Broken Access Control"
-         subheading="Implementation of unverified data"
+         subheading="Changing URL to access different controls"
          definition=" This is a flaw if the website URL simply allows the attacker to enter
          a different account value than intended (assuming that they know what
-         they are doing). Example,"/>
-        <Accordion title="How to Prevent Broken Access Control"/>
+         they are doing). Suppose that a website is set up take in an account parameter and used to
+         execute a query, if this parameter is configurable on the URL and the query successfully executes 
+         when changed, an attacker could simply change the URL to access a different account. in Figure 2a
+         the application may use a SQL query to retrieve account information. An attacker can may access the user 
+         account by modifying the respective parameter in the browser if they change it to
+          'http://www.CPSC329example.com/app/accountInfo?acct=hackeracct'"
+         definitionTwo="Figure 2a"
+         imageTwo={BrokenAccCont2}
+         />
+        <Accordion 
+        title="How to Prevent Broken Access Control"
+        definition="The addition of monitoring or logging of certain user activity can help monitor whether or not
+        an attack is occuring. Sometimes seeing strange activities or a transaction could be warning that an attacker
+        was able to gain some kind of access control that was broken. It is normally better to implement the access controls
+        on the backend as much as possible, client-side code could allow attackers to search for sneaky ways to bypass 
+        certain authorization. Also having implementations of servlet securities and a single point of control makes maintenance 
+        and tracking of the various controls easier. It can be overwhelming if there are 100+ users each with different configurations
+        spread throughout the application, this scenario would enable a hacker to search through for vulnerabilities."
+        />
       </div>
-      {/* <div class="panel">
-
-      </div>
-
-      <button class="accordion">Section 2</button>
-      <div class="panel">
-        <p>
-          <h2>Implementation of unverified data</h2>
-          This is a flaw if the website URL simply allows the attacker to enter
-          a different account value than intended (assuming that they know what
-          they are doing). Example,
-          <code>
-            pstmt.setString(1, request.getParameter("acct"));
-            <br />
-            ResultSet results = pstmt.executeQuery();
-            <br />
-            The hacker may simply attempt the following:
-            <br />
-            http://test.com/app/accountInfo?acct=hackerAttemptToGainAccessControl
-          </code>
-          This is a flaw if both the hacker and a non-administrator can access
-          the page.
-        </p>
-      </div>
-
-      <button class="accordion">Section 3</button>
-      <div class="panel">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-        </p>
-      </div> */}
     </TitleStyle>
   );
 };
