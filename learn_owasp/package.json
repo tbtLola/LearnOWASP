@@ -1,5 +1,5 @@
 {
-  "homepage": "http://tbtLola.github.io/learn_owasp",
+  "homepage": "http://tbtLola.github.io/LearnOwasp",
   "name": "learn_owasp",
   "version": "0.1.0",
   "private": true,
@@ -23,7 +23,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build", 
-    "deploy": "gh-pages -d build"
+    "deploy": "master -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
